@@ -10,9 +10,7 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 -- use julia language server
--- vim.lsp.enable("julials")
-
-require("lspconfig").julials.setup({
+vim.lsp.config("julials", {
   on_new_config = function(new_config, new_root_dir)
     local server_path = "/home/ilja/.julia/packages/LanguageServer/Fwm1f/src"
     local cmd = {
@@ -59,3 +57,4 @@ require("lspconfig").julials.setup({
     },
   },
 })
+vim.lsp.enable("julials")
