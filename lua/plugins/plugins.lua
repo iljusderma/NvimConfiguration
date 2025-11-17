@@ -34,11 +34,22 @@ return {
     version = "1.*",
     opts = {}, -- lazy.nvim will implicitly calls `setup {}`
   },
-    -- Telescope
-{
-    'nvim-telescope/telescope.nvim', tag = '0.1.8',
--- or                              , branch = '0.1.x',
-      dependencies = { 'nvim-lua/plenary.nvim' }
-}, 
-} 
-
+  -- Nvim ssh usage
+  {
+    "amitds1997/remote-nvim.nvim",
+    version = "*", -- Pin to GitHub releases
+    dependencies = {
+      "nvim-lua/plenary.nvim", -- For standard functions
+      "MunifTanjim/nui.nvim", -- To build the plugin UI
+      "nvim-telescope/telescope.nvim", -- For picking b/w different remote methods
+    },
+    config = true,
+  },
+  -- Telescope
+  {
+    "nvim-telescope/telescope.nvim",
+    tag = "0.1.8",
+    -- or                              , branch = '0.1.x',
+    dependencies = { "nvim-lua/plenary.nvim" },
+  },
+}
